@@ -74,6 +74,11 @@ class  vtec_oxbasket extends vtec_oxbasket_parent
             $aLangs= $oxLang->getLanguageIds();
             $oArticle->assign( array( 'oxarticles__active' => 1,
                                       'oxarticles__oxprice' => $price,
+                                      // Pfandpreise für Gruppen
+                                      'oxarticles__oxprice'  => $price,
+                                      'oxarticles__oxpricea' => $price,
+                                      'oxarticles__oxpriceb' => $price,
+                                      'oxarticels__oxpricec' => $price,
                                       'oxarticles__oxissearch' => 0,           
                                       'oxarticles__oxpic1' => 'pfand.jpg',
                                       'oxarticles__oxvat' => $vtec_mwst,
