@@ -75,13 +75,15 @@ class  vtec_oxbasket extends vtec_oxbasket_parent
             $oArticle->assign( array( 'oxarticles__active' => 1,
                                       'oxarticles__oxprice' => $price,
                                       // Pfandpreise für Gruppen
-                                      'oxarticles__oxprice'  => $price,
-                                      'oxarticles__oxpricea' => $price,
-                                      'oxarticles__oxpriceb' => $price,
-                                      'oxarticels__oxpricec' => $price,
-                                      'oxarticles__oxissearch' => 0,           
-                                      'oxarticles__oxpic1' => 'pfand.jpg',
-                                      'oxarticles__oxvat' => $vtec_mwst,
+                                      'oxarticles__oxprice'          => $price,
+                                      'oxarticles__oxpricea'         => $price,
+                                      'oxarticles__oxpriceb'         => $price,
+                                      'oxarticels__oxpricec'         => $price,
+                                      'oxarticles__oxissearch'       => 0,           
+                                      'oxarticles__oxpic1'           => 'pfand.jpg',
+                                      'oxarticles__oxvat'            => $vtec_mwst,
+                                      // Pfandartikel von Rabatten ausschliessen
+                                      'oxarticles__oxskipdiscounts'  => 1,
                               ));
             $oArticle->save();
 

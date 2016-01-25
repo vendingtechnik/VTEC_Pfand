@@ -61,11 +61,11 @@ class  vtec_oxbasket extends vtec_oxbasket_parent
      */
     protected function PfandArtikelID($price)
     {
-        /* $oxLang = oxLang::getInstance(); */ // bis CE 4.8.9
-        $oxLang = oxRegistry::getLang(); // ab CE 4.9.0
+        $oxLang = oxLang::getInstance(); */ // bis CE 4.8.9
+        /* $oxLang = oxRegistry::getLang(); */ // ab CE 4.9.0 
         $title = $oxLang->translateString( 'VTEC_PFAND', 0);
-        /* $vtec_mwst = oxConfig::getInstance()->getConfigParam('vtec_pfand_mwst');  */  // bis CE 4.8.9
-        $vtec_mwst = oxRegistry::getConfig()->getConfigParam('vtec_pfand_mwst');    // ab CE 4.9.0
+        $vtec_mwst = oxConfig::getInstance()->getConfigParam('vtec_pfand_mwst');    // bis CE 4.8.9
+        /* $vtec_mwst = oxRegistry::getConfig()->getConfigParam('vtec_pfand_mwst'); */   // ab CE 4.9.0 
         $sSelect = "SELECT oxid FROM oxarticles WHERE oxtitle = '" . $title . "' AND oxprice = '" . $price . "' LIMIT 1";
 
         $qResult = oxDb::getDb(ADODB_FETCH_ASSOC)->getOne($sSelect);
@@ -74,13 +74,15 @@ class  vtec_oxbasket extends vtec_oxbasket_parent
             $aLangs= $oxLang->getLanguageIds();
             $oArticle->assign( array( 'oxarticles__active' => 1,
                                   //  'oxarticles__oxpicsgenerated'  => 0,   wird ab CE 4.8.0 nicht mehr unterstützt
-                                      'oxarticles__oxissearch' => 0,  
-                                      'oxarticles__oxprice'  => $price,
-                                      'oxarticles__oxpricea' => $price,
-                                      'oxarticles__oxpriceb' => $price,
-                                      'oxarticels__oxpricec' => $price,         
-                                      'oxarticles__oxpic1' => 'pfand.jpg',
-                                      'oxarticles__oxvat' => $vtec_mwst,
+                                      'oxarticles__oxissearch'      => 0,  
+                                      'oxarticles__oxprice'         => $price,
+                                      'oxarticles__oxpricea'        => $price,
+                                      'oxarticles__oxpriceb'        => $price,
+                                      'oxarticels__oxpricec'        => $price,         
+                                      'oxarticles__oxpic1'          => 'pfand.jpg',
+                                      'oxarticles__oxvat'           => $vtec_mwst,
+                                      // Pfandartikel von Rabatten ausschliessen
+                                      'oxarticles__oxskipdiscounts' => 1,
                               ));
             $oArticle->save();
 
