@@ -5,7 +5,7 @@
  * Version:    2.0
  * Author:     Pasquale Pari | Vendingtechnik
  * Author URL: http://www.vendingtechnik.com
- * Originallösungsansatz aus der Oxid Community (http://forum.oxid-esales.com/showthread.php?t=528&page=3)
+ * Originalösungsansatz aus der Oxid Community (http://forum.oxid-esales.com/showthread.php?t=528&page=3)
  * License:    GNU GPL 3.0
  *             !! it is forbidden to resell this Software !!
  */
